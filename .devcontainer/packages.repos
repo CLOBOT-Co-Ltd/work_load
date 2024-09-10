@@ -1,0 +1,9 @@
+repositories:
+  calculate_work:
+    type: git
+    url: https://github.com/CLOBOT-Co-Ltd/calculate_work.git
+    version: main
+  velodyne_simulator:
+    type: git
+    url: https://github.com/ToyotaResearchInstitute/velodyne_simulator.git
+    version: dashing-devel
