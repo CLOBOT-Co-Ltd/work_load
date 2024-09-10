@@ -48,8 +48,13 @@ RUN vcs import < packages.repos; \
 
 # Add sourcing ROS setup.bash to .bashrc
 RUN echo "source /opt/ros/${ROS_DISTRO}/setup.bash" >> ~/.bashrc
+RUN echo "source /root/ros_ws/install/local_setup.bash" >> ~/.bashrc
 
 RUN cd /root/ros_ws/src/calculate_work
 RUN mkdir -p /root/.gazebo/model
 RUN mv /root/ros_ws/src/calculate_work/ground /root/.gazebo/model
 RUN export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:~/.gazebo/model/
+RUN echo "export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:~/.gazebo/model/" >> ~/.bashrc
+
+RUN echo "source /usr/share/gazebo/setup.sh" >> ~/.bashrc
+RUN echo "export GAZEBO_PLUGIN_PATH=$GAZEBO_PLUGIN_PATH:/opt/ros/${ROS_DISTRO}/lib" >> ~/.bashrc
